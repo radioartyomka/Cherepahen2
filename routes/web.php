@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','BaseController@getIndex');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('{url}', 'RoomController@getindex');
+Route::get('start', 'RoomController@getStart');
+Route::get('room/{url}', 'RoomController@getindex');
+Route::get('{url}', 'RoomController@getindex'); //всегда в конце
